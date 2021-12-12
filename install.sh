@@ -21,17 +21,17 @@ if ! command -v git &>/dev/null ;then
   fi
 fi
 
-if [ ! -d ~/Boxy-SVG-RPi ];then
+if [ ! -d ~/Apps/Boxy-SVG-RPi ];then
   echo "Downloading Boxy-SVG-RPi repo now..."
-  git clone https://github.com/Botspot/Boxy-SVG-RPi || error "failed to git clone!"
+  git clone https://github.com/Botspot/Boxy-SVG-RPi ~/Apps/Boxy-SVG-RPi || error "failed to git clone!"
   cd Boxy-SVG-RPi
   unzip ./boxysvgrpi.zip >/dev/null
   rm ./boxysvgrpi.zip
 else
-  cd ~/Boxy-SVG-RPi
+  cd ~/Apps/Boxy-SVG-RPi
 fi
 
-if [ ! -d ~/Boxy-SVG-RPi/boxysvgrpi ];then
+if [ ! -d ~/Apps/Boxy-SVG-RPi/boxysvgrpi ];then
   error "extraction failed somehow!"
 fi
 
