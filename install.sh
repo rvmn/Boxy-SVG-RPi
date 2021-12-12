@@ -24,7 +24,7 @@ fi
 if [ ! -d ~/Apps/Boxy-SVG-RPi ];then
   echo "Downloading Boxy-SVG-RPi repo now..."
   git clone https://github.com/Botspot/Boxy-SVG-RPi ~/Apps/Boxy-SVG-RPi || error "failed to git clone!"
-  cd Boxy-SVG-RPi
+  cd ~/Apps/Boxy-SVG-RPi
   unzip ./boxysvgrpi.zip >/dev/null
   rm ./boxysvgrpi.zip
 else
@@ -34,6 +34,8 @@ fi
 if [ ! -d ~/Apps/Boxy-SVG-RPi/boxysvgrpi ];then
   error "extraction failed somehow!"
 fi
+
+if [ !$(uname -n) == "JingOS" ]; then sudo apt install chromium-browser; fi
 
 if command -v chromium-browser &>/dev/null;then
   browser="$(command -v chromium-browser)"
